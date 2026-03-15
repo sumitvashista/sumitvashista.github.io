@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Vashist | Researcher @ SSPL (DRDO)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: '#0A0A0A',
+                        ink: '#FFFFFF',
+                        accent: '#00FF66',
+                        muted: '#666666',
+                        border: '#222222',
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-bg text-ink font-sans selection:bg-accent selection:text-bg;
+            }
+        }
+        @layer utilities {
+            .grid-pattern {
+                background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+                background-size: 40px 40px;
+            }
+            .glass {
+                @apply bg-bg/80 backdrop-blur-md border border-border;
+            }
+            .border-text-stroke {
+                -webkit-text-stroke: 1px currentColor;
+                color: transparent;
+            }
+        }
+    </style>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen">
+
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-accent z-50 origin-left w-0 transition-all duration-100"></div>
+
+    <!-- Grid Background -->
+    <div class="fixed inset-0 grid-pattern opacity-20 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 glass border-b-0">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 h-20 flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-black tracking-tighter uppercase hover:scale-105 transition-transform">
+                Sumit<span class="text-accent">.</span>
+            </a>
+
+            <div class="hidden md:flex gap-12">
+                <a href="#services" class="font-mono text-xs uppercase tracking-[0.2em] hover:text-accent transition-colors">Services</a>
+                <a href="#projects" class="font-mono text-xs uppercase tracking-[0.2em] hover:text-accent transition-colors">Projects</a>
+                <a href="#about" class="font-mono text-xs uppercase tracking-[0.2em] hover:text-accent transition-colors">About</a>
+                <a href="#contact" class="font-mono text-xs uppercase tracking-[0.2em] hover:text-accent transition-colors">Contact</a>
+            </div>
+
+            <button id="menu-toggle" class="md:hidden p-2 text-accent">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-30 bg-bg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-300 ease-in-out">
+        <button id="menu-close" class="absolute top-6 right-6 p-2 text-accent">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="#services" class="mobile-link text-4xl font-display font-bold uppercase tracking-tighter">Services</a>
+        <a href="#projects" class="mobile-link text-4xl font-display font-bold uppercase tracking-tighter">Projects</a>
+        <a href="#about" class="mobile-link text-4xl font-display font-bold uppercase tracking-tighter">About</a>
+        <a href="#contact" class="mobile-link text-4xl font-display font-bold uppercase tracking-tighter">Contact</a>
+    </div>
+
+    <main class="relative pt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 max-w-screen-2xl mx-auto py-24 overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <img src="https://sumitvashista.github.io/img/hero-bg.png" alt="" class="w-full h-full object-cover" referrerPolicy="no-referrer">
+            </div>
+            <div class="relative">
+                <div class="reveal">
+                    <span class="font-mono text-accent text-sm uppercase tracking-[0.3em] mb-6 block">
+                        PhD Scholar | Researcher @ SSPL (DRDO)
+                    </span>
+                    <h1 class="text-[12vw] md:text-[10vw] font-display font-black leading-[0.85] tracking-tighter uppercase mb-12">
+                        Sumit <br />
+                        <span class="border-text-stroke">Vashist</span>
+                    </h1>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-end">
+                    <div class="max-w-md reveal-delayed">
+                        <p class="text-muted text-lg leading-relaxed mb-8">
+                            Innovative Researcher specializing in Electronic Science, IoT, and Machine Learning. 
+                            Currently at SSPL (DRDO) developing geo-hazard monitoring systems.
+                        </p>
+                        <div class="flex gap-6">
+                            <a href="#contact" class="bg-accent text-bg px-8 py-4 font-display font-bold uppercase tracking-wider hover:bg-white transition-colors">
+                                Get in touch
+                            </a>
+                            <a href="https://teacookiesthoughts.wordpress.com/" target="_blank" class="border border-border px-8 py-4 font-display font-bold uppercase tracking-wider hover:border-accent transition-colors flex items-center gap-2">
+                                Blog <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4 font-mono text-[10px] uppercase tracking-widest text-muted md:items-end">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="globe" class="w-3 h-3"></i> CURRENTLY IN NEW DELHI, IN
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="zap" class="w-3 h-3"></i> OPEN FOR COLLABORATION
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="px-6 md:px-12 max-w-screen-2xl mx-auto py-24 border-t border-border">
+            <div class="mb-16 md:mb-24">
+                <div class="flex items-baseline gap-4 mb-4">
+                    <span class="font-mono text-accent text-sm tracking-tighter">01</span>
+                    <div class="h-[1px] flex-1 bg-border"></div>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase leading-none mb-4">Services</h2>
+                <p class="text-muted font-mono text-sm uppercase tracking-widest max-w-md">Expertise & Solutions</p>
+            </div>
+            
+            <div class="flex flex-col">
+                <!-- Service 1 -->
+                <div class="flex gap-8 py-12 border-b border-border group reveal">
+                    <div class="hidden md:block">
+                        <span class="font-mono text-muted text-sm">01</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-border group-hover:bg-accent group-hover:text-bg transition-colors duration-500">
+                                <i data-lucide="cpu" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold tracking-tight uppercase">Electronic Science</h3>
+                        </div>
+                        <p class="text-muted max-w-2xl leading-relaxed">
+                            Expertise in hardware-software integration, sensors, and embedded systems (Raspberry Pi, Arduino, ESP32).
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="flex gap-8 py-12 border-b border-border group reveal">
+                    <div class="hidden md:block">
+                        <span class="font-mono text-muted text-sm">02</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-border group-hover:bg-accent group-hover:text-bg transition-colors duration-500">
+                                <i data-lucide="globe" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold tracking-tight uppercase">IoT & Monitoring</h3>
+                        </div>
+                        <p class="text-muted max-w-2xl leading-relaxed">
+                            Developing real-time monitoring systems using SIM7600 modules and various geotechnical sensors.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="flex gap-8 py-12 border-b border-border group reveal">
+                    <div class="hidden md:block">
+                        <span class="font-mono text-muted text-sm">03</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-border group-hover:bg-accent group-hover:text-bg transition-colors duration-500">
+                                <i data-lucide="database" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold tracking-tight uppercase">Machine Learning</h3>
+                        </div>
+                        <p class="text-muted max-w-2xl leading-relaxed">
+                            Applying AI models and Python data analysis (Scikit-learn, Pandas) to solve complex physical problems.
+                        </p>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="flex gap-8 py-12 border-b border-border group reveal">
+                    <div class="hidden md:block">
+                        <span class="font-mono text-muted text-sm">04</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="p-3 bg-border group-hover:bg-accent group-hover:text-bg transition-colors duration-500">
+                                <i data-lucide="zap" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold tracking-tight uppercase">Signal Processing</h3>
+                        </div>
+                        <p class="text-muted max-w-2xl leading-relaxed">
+                            Advanced signal analysis and automated processing pipelines for acoustic and optoelectronic data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="px-6 md:px-12 max-w-screen-2xl mx-auto py-24 border-t border-border">
+            <div class="mb-16 md:mb-24">
+                <div class="flex items-baseline gap-4 mb-4">
+                    <span class="font-mono text-accent text-sm tracking-tighter">02</span>
+                    <div class="h-[1px] flex-1 bg-border"></div>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase leading-none mb-4">Projects</h2>
+                <p class="text-muted font-mono text-sm uppercase tracking-widest max-w-md">Recent Work & Research</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-px bg-border border border-border">
+                <!-- Project 1 -->
+                <div class="bg-bg p-8 group relative hover:border-accent/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-accent w-6 h-6"></i>
+                    </div>
+                    <div class="mb-8">
+                        <span class="font-mono text-xs text-muted mb-2 block uppercase tracking-widest">Project 01</span>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-accent transition-colors">Geo-Hazard Monitoring</h3>
+                        <p class="text-muted leading-relaxed mb-6 font-sans">
+                            Developing cutting-edge landslide early warning systems and acoustic emission monitoring at SSPL (DRDO).
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">IoT</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Sensors</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Geo-hazard</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">DRDO</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-bg p-8 group relative hover:border-accent/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-accent w-6 h-6"></i>
+                    </div>
+                    <div class="mb-8">
+                        <span class="font-mono text-xs text-muted mb-2 block uppercase tracking-widest">Project 02</span>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-accent transition-colors">Automated Data Pipelines</h3>
+                        <p class="text-muted leading-relaxed mb-6 font-sans">
+                            Building automated data processing pipelines for real-time sensor data analysis and hazard prediction.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Python</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Data Science</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Signal Processing</span>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-bg p-8 group relative hover:border-accent/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-accent w-6 h-6"></i>
+                    </div>
+                    <div class="mb-8">
+                        <span class="font-mono text-xs text-muted mb-2 block uppercase tracking-widest">Project 03</span>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-accent transition-colors">Laser Turret Control</h3>
+                        <p class="text-muted leading-relaxed mb-6 font-sans">
+                            Microcontroller-based laser turret with mobile app control via Bluetooth. Developed at IRDE (DRDO).
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Arduino</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Bluetooth</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Robotics</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">DRDO</span>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="bg-bg p-8 group relative hover:border-accent/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-accent w-6 h-6"></i>
+                    </div>
+                    <div class="mb-8">
+                        <span class="font-mono text-xs text-muted mb-2 block uppercase tracking-widest">Project 04</span>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold mb-4 group-hover:text-accent transition-colors">Acoustic Emission Analysis</h3>
+                        <p class="text-muted leading-relaxed mb-6 font-sans">
+                            Monitoring and analyzing acoustic emissions for structural health and geotechnical monitoring.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Signal Processing</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">AE Sensors</span>
+                        <span class="px-3 py-1 border border-border text-[10px] font-mono uppercase tracking-wider group-hover:border-accent/20">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="px-6 md:px-12 max-w-screen-2xl mx-auto py-24 border-t border-border">
+            <div class="grid md:grid-cols-2 gap-24">
+                <div>
+                    <div class="mb-16 md:mb-24">
+                        <div class="flex items-baseline gap-4 mb-4">
+                            <span class="font-mono text-accent text-sm tracking-tighter">03</span>
+                            <div class="h-[1px] flex-1 bg-border"></div>
+                        </div>
+                        <h2 class="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase leading-none mb-4">About</h2>
+                        <p class="text-muted font-mono text-sm uppercase tracking-widest max-w-md">Background & Vision</p>
+                    </div>
+                    <div class="space-y-6 text-muted text-lg leading-relaxed reveal">
+                        <p>
+                            I am an Innovative Researcher and PhD Scholar in Electronic Science at the University of Delhi, 
+                            currently working at SSPL (DRDO) on cutting-edge geo-hazard monitoring systems. 
+                            My work focuses on bridging the gap between hardware (sensors, embedded systems) 
+                            and software (Python data analysis, AI models).
+                        </p>
+                        <p>
+                            With a background in Physics and Electronics, I specialize in developing landslide 
+                            early warning systems, acoustic emission monitoring, and automated data processing 
+                            pipelines. I am passionate about using technology to solve real-world environmental 
+                            challenges through IoT and Machine Learning.
+                        </p>
+                    </div>
+                    <div class="mt-12 reveal">
+                        <a href="https://drive.google.com/file/d/1aR1_JjWPFOFz5aA5IFNhJmdjw_5CqaTO/view?usp=sharing" target="_blank" class="inline-flex items-center gap-3 text-accent font-display font-bold uppercase tracking-widest hover:gap-5 transition-all">
+                            Download Resume <i data-lucide="download" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative aspect-square md:aspect-auto border border-border overflow-hidden reveal">
+                    <div class="absolute inset-0 bg-accent/10 mix-blend-overlay"></div>
+                    <img src="https://sumitvashista.github.io/img/img-2.jpg" alt="Sumit Vashist" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" referrerPolicy="no-referrer">
+                    <div class="absolute bottom-0 left-0 w-full p-8 glass border-x-0 border-b-0">
+                        <div class="flex justify-between items-center">
+                            <span class="font-mono text-xs uppercase tracking-widest">PhD Scholar | Researcher @ SSPL (DRDO)</span>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/sumitvashista" target="_blank" rel="noopener noreferrer">
+                                    <i data-lucide="github" class="w-5 h-5 cursor-pointer hover:text-accent transition-colors"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/sumitvashista/" target="_blank" rel="noopener noreferrer">
+                                    <i data-lucide="linkedin" class="w-5 h-5 cursor-pointer hover:text-accent transition-colors"></i>
+                                </a>
+                                <a href="https://www.instagram.com/teasumit/" target="_blank" rel="noopener noreferrer">
+                                    <i data-lucide="instagram" class="w-5 h-5 cursor-pointer hover:text-accent transition-colors"></i>
+                                </a>
+                                <a href="https://x.com/i_teddysphotos" target="_blank" rel="noopener noreferrer">
+                                    <i data-lucide="twitter" class="w-5 h-5 cursor-pointer hover:text-accent transition-colors"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="px-6 md:px-12 max-w-screen-2xl mx-auto py-24 border-t border-border">
+            <div class="mb-16 md:mb-24">
+                <div class="flex items-baseline gap-4 mb-4">
+                    <span class="font-mono text-accent text-sm tracking-tighter">04</span>
+                    <div class="h-[1px] flex-1 bg-border"></div>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-display font-bold tracking-tighter uppercase leading-none mb-4">Contact</h2>
+                <p class="text-muted font-mono text-sm uppercase tracking-widest max-w-md">Let's build something</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="border border-border p-10 hover:border-accent/30 transition-colors reveal">
+                    <div class="p-4 bg-border w-fit mb-6">
+                        <i data-lucide="mail" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h4 class="font-display font-bold uppercase mb-4">Email</h4>
+                    <div class="space-y-2 font-mono text-sm text-muted">
+                        <a href="mailto:vashistsumit99@gmail.com" class="block hover:text-accent transition-colors">vashistsumit99@gmail.com</a>
+                        <a href="mailto:vashistasumit@yahoo.com" class="block hover:text-accent transition-colors">vashistasumit@yahoo.com</a>
+                    </div>
+                </div>
+
+                <div class="border border-border p-10 hover:border-accent/30 transition-colors reveal" style="transition-delay: 100ms">
+                    <div class="p-4 bg-border w-fit mb-6">
+                        <i data-lucide="phone" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h4 class="font-display font-bold uppercase mb-4">Phone</h4>
+                    <div class="space-y-2 font-mono text-sm text-muted">
+                        <a href="tel:+919350469454" class="block hover:text-accent transition-colors">+91 9350469454</a>
+                        <a href="tel:+918860319440" class="block hover:text-accent transition-colors">+91 8860319440</a>
+                    </div>
+                </div>
+
+                <div class="border border-border p-10 hover:border-accent/30 transition-colors reveal" style="transition-delay: 200ms">
+                    <div class="p-4 bg-border w-fit mb-6">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-accent"></i>
+                    </div>
+                    <h4 class="font-display font-bold uppercase mb-4">Location</h4>
+                    <div class="space-y-2 font-mono text-sm text-muted">
+                        <p>New-Delhi, 110044</p>
+                        <p>India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-24 border-t border-border pt-12 flex flex-col md:flex-row justify-between items-center gap-8 reveal">
+                <div class="text-center md:text-left">
+                    <h3 class="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-4">
+                        Ready to <span class="text-accent">Collaborate?</span>
+                    </h3>
+                    <p class="text-muted font-mono uppercase tracking-widest text-sm">
+                        Drop a message or find me on social media
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://github.com/sumitvashista" target="_blank" rel="noopener noreferrer" class="p-5 border border-border hover:border-accent hover:text-accent transition-colors">
+                        <i data-lucide="github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sumitvashista/" target="_blank" rel="noopener noreferrer" class="p-5 border border-border hover:border-accent hover:text-accent transition-colors">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/teasumit/" target="_blank" rel="noopener noreferrer" class="p-5 border border-border hover:border-accent hover:text-accent transition-colors">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="https://x.com/i_teddysphotos" target="_blank" rel="noopener noreferrer" class="p-5 border border-border hover:border-accent hover:text-accent transition-colors">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="mailto:vashistsumit99@gmail.com" class="p-5 border border-border hover:border-accent hover:text-accent transition-colors">
+                        <i data-lucide="mail"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="px-6 md:px-12 max-w-screen-2xl mx-auto py-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 text-muted font-mono text-[10px] uppercase tracking-[0.2em]">
+        <div>
+            © 2026 Sumit Vashist. All rights reserved.
+        </div>
+        <div class="flex gap-8">
+            <a href="#" class="hover:text-accent">Privacy Policy</a>
+            <a href="#" class="hover:text-accent">Terms of Service</a>
+        </div>
+        <div class="flex items-center gap-2">
+            Built with <i data-lucide="zap" class="w-3 h-3 text-accent"></i> SumitCo
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('translate-x-full');
+        };
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+        };
+
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Scroll Progress Bar
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+
+        // Simple Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('.reveal, .reveal-delayed');
+        const revealOnScroll = () => {
+            for (let i = 0; i < revealElements.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = revealElements[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    revealElements[i].classList.add("active");
+                }
+            }
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
+
+    <style>
+        .reveal {
+            position: relative;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+        .reveal-delayed {
+            position: relative;
+            opacity: 0;
+            transition: all 1s ease-out;
+            transition-delay: 0.5s;
+        }
+        .reveal.active, .reveal-delayed.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</body>
+</html>
